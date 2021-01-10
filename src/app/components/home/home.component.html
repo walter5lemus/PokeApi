@@ -1,4 +1,5 @@
 <br>
 <div class="card-group">
-    <app-card [listaPokemon]="listaPokemon"></app-card>
+    <app-card [listaPokemon]="listaPokemon" infiniteScroll [infiniteScrollDistance]="2" (scrolled)="onScroll()"></app-card>
+    <button [ngClass]="'no-hidden'" *ngIf="showGoUpButton" class="btn btn-dark" (click)="scrollTop()">GO UP</button>
 </div>

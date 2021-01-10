@@ -3,8 +3,7 @@ import { Pokemon } from '../../clases/pokemon';
 
 @Component({
   selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss']
+  templateUrl: './card.component.html'
 })
 export class CardComponent implements OnInit {
 
@@ -23,8 +22,7 @@ export class CardComponent implements OnInit {
     return this.urlImage.concat(id + 1 + '.svg');
   }
 
-  verPokemon(){
-    
+  verPokemon(): void{
   }
 
 }
