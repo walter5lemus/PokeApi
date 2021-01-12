@@ -29,11 +29,22 @@ export class HomeComponent implements OnInit {
     this.pokeService
       .getPokemones(this.offset, this.limit)
       .subscribe((respuesta: any) => {
-        console.log('hola');
         this.listaPokemon = respuesta.results;
+        this.asignarIndex();
       });
   }
 
+  asignarIndex(): void {
+    this.listaPokemon.forEach((element) => {
+      const index = this.obtenerIndex(element);
+      element.id = index;
+    });
+  }
+
+  obtenerIndex(pokemon: Pokemon): number {
+    const indice = this.listaPokemon.findIndex((poke) => poke === pokemon);
+    return indice + 1;
+  }
 
   onScroll(): void {
     if (this.limit < 151) {
@@ -43,6 +54,7 @@ export class HomeComponent implements OnInit {
           .getPokemones(this.offset, this.limit)
           .subscribe((respuesta: any) => {
             this.listaPokemon = respuesta.results;
+            this.asignarIndex();
           });
       } else {
         const size = this.listaPokemon.length;
@@ -51,6 +63,7 @@ export class HomeComponent implements OnInit {
             .getPokemones(this.offset, this.limitePokemon)
             .subscribe((respuesta: any) => {
               this.listaPokemon = respuesta.results;
+              this.asignarIndex();
             });
         }
       }

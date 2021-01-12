@@ -1,12 +1,12 @@
 <div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-4 p-0 m-0 " *ngFor="let pokemon of listaPokemon; let i = index">
+    <div class="col-sm-12 col-md-6 col-lg-4 p-0 m-0 " *ngFor="let pokemon of listaPokemon">
         <!-- Card -->
-        <div class="card">
+        <div class="card" (click)="imprimir(pokemon)">
 
             <!-- Card image -->
             <div class="view overlay">
-                <img class="card-img-top" [src]="obtenerFoto(i)" [alt]="pokemon.name" height="250">
-                <a href="#!">
+                <img class="card-img-top" [src]="obtenerFoto(pokemon)" [alt]="pokemon.name" height="250">
+                <a>
                     <div class="mask rgba-white-slight"></div>
                 </a>
             </div>
@@ -15,7 +15,7 @@
             <div class="card-body">
 
                 <!-- Title -->
-                <h4 class="card-title text-center"> {{(i+1)}} - {{pokemon.name |titlecase}}</h4>
+                <h4 class="card-title text-center"> {{(pokemon.id)}} - {{pokemon.name |titlecase}}</h4>
 
             </div>
 

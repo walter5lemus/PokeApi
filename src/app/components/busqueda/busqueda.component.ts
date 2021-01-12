@@ -27,17 +27,31 @@ export class BusquedaComponent implements OnInit {
         const list: Pokemon[] = respuesta.results;
         const termino = params.nombre.toLowerCase();
         list.forEach((element) => {
-          if (element.name.indexOf(termino)  >= 0) {
+          if (element.name.indexOf(termino) >= 0) {
             listaPoke.push(element);
           }
         });
         this.listaPokemon = listaPoke;
+        this.asignarIndex();
       });
       this.termino = params.nombre;
     });
   }
 
   ngOnInit(): void {}
+
+  asignarIndex(): void {
+    this.listaPokemon.forEach((element) => {
+      const index = this.obtenerIndex(element);
+      element.id = index;
+    });
+  }
+
+  obtenerIndex(pokemon: Pokemon): number {
+    const url = pokemon.url.split('/');
+    const valor: number = parseInt(url[6], 10);
+    return valor;
+  }
 
   scrollTop(): void {
     document.body.scrollTop = 0; // Safari
