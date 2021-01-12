@@ -10,13 +10,15 @@ import { CardComponent } from './components/card/card.component';
 import { PokeService } from './services/poke.service';
 import { HttpClientModule } from '@angular/common/http';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { BusquedaComponent } from './components/busqueda/busqueda.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavbarComponent,
-    CardComponent
+    CardComponent,
+    BusquedaComponent
   ],
   imports: [
     BrowserModule,

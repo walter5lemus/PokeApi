@@ -1,6 +1,9 @@
+<h1>Buscando: <small> {{ termino }}</small></h1>
+<hr>
+
 <br>
 <div class="card-group animated fadeIn fast">
-    <app-card [listaPokemon]="listaPokemon" infiniteScroll [infiniteScrollDistance]="2" (scrolled)="onScroll()"></app-card>
+    <app-card [listaPokemon]="listaPokemon"></app-card>
 </div>
 <button type="button" class="btn btn-flotante btn-rounded" *ngIf="showGoUpButton" (click)="scrollTop()">
     <i class="fas fa-arrow-circle-up fa-3x"></i>

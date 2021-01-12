@@ -2,10 +2,12 @@ import { Component, HostListener, OnInit, ValueProvider } from '@angular/core';
 import { PokeService } from 'src/app/services/poke.service';
 import Swal from 'sweetalert2';
 import { Pokemon } from '../../clases/pokemon';
+import { tap, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
   public listaPokemon: Pokemon[];
@@ -27,9 +29,11 @@ export class HomeComponent implements OnInit {
     this.pokeService
       .getPokemones(this.offset, this.limit)
       .subscribe((respuesta: any) => {
+        console.log('hola');
         this.listaPokemon = respuesta.results;
       });
   }
+
 
   onScroll(): void {
     if (this.limit < 151) {
@@ -61,16 +65,19 @@ export class HomeComponent implements OnInit {
   }
 
   @HostListener('window:scroll', [])
-  onWindowScroll(): void{
-    if (( window.pageYOffset ||
-      document.documentElement.scrollTop ||
-      document.body.scrollTop) > this.showScrollHeight) {
-      this.showGoUpButton = true;
-    } else if ( this.showGoUpButton &&
+  onWindowScroll(): void {
+    if (
       (window.pageYOffset ||
         document.documentElement.scrollTop ||
-        document.body.scrollTop)
-      < this.hideScrollHeight) {
+        document.body.scrollTop) > this.showScrollHeight
+    ) {
+      this.showGoUpButton = true;
+    } else if (
+      this.showGoUpButton &&
+      (window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop) < this.hideScrollHeight
+    ) {
       this.showGoUpButton = false;
     }
   }

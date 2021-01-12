@@ -10,16 +10,16 @@
         <!-- Links -->
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link waves-light" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
+                <a class="nav-link waves-light" [routerLink]="['home']" mdbWavesEffect>Home<span class=" sr-only ">(current)</span></a>
             </li>
 
         </ul>
         <!-- Links -->
 
         <!-- Search form -->
-        <form class="form-inline waves-light" mdbWavesEffect>
-            <div class="md-form my-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        <form class="form-inline waves-light " mdbWavesEffect>
+            <div class="md-form my-0 ">
+                <input class="form-control mr-sm-2 " type="text " placeholder="Search " (keyup)="search(buscarPokemon.value) " #buscarPokemon>
             </div>
         </form>
     </links>
