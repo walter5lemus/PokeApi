@@ -8,7 +8,7 @@ import { Pokemon } from '../../clases/pokemon';
 export class CardComponent implements OnInit {
   @Input() listaPokemon: Pokemon[];
   @Input() id = -1;
-  @Input() clases: string;
+  @Input() tamano: string;
 
   public urlImage =
     'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/';
@@ -17,7 +17,7 @@ export class CardComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  imprimir(pokemon: Pokemon): void{
+  imprimir(pokemon: Pokemon): void {
     console.log(pokemon);
   }
 

@@ -15,6 +15,7 @@ export class BusquedaComponent implements OnInit {
   public showGoUpButton: boolean;
   public showScrollHeight = 400;
   public hideScrollHeight = 200;
+  public tamano = 'col-sm-12 col-md-6 col-lg-4 p-0 m-0';
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -33,6 +34,11 @@ export class BusquedaComponent implements OnInit {
         });
         this.listaPokemon = listaPoke;
         this.asignarIndex();
+        if (this.listaPokemon.length < 3) {
+          this.tamano = 'w-auto';
+        }else{
+          this.tamano = 'col-sm-12 col-md-6 col-lg-4 p-0 m-0'
+        }
       });
       this.termino = params.nombre;
     });

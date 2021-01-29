@@ -1,7 +1,9 @@
 <br>
-<div class="card-group animated fadeIn fast">
-    <app-card [listaPokemon]="listaPokemon" infiniteScroll [infiniteScrollDistance]="2" (scrolled)="onScroll()"></app-card>
-</div>
-<button type="button" class="btn btn-flotante btn-rounded" *ngIf="showGoUpButton" (click)="scrollTop()">
+<div class="row">
+    <div class="card-group animated fadeIn fast">
+        <app-card [listaPokemon]="listaPokemon" [tamano]="tamano" infiniteScroll [infiniteScrollDistance]="2" (scrolled)="onScroll()"></app-card>
+    </div>
+    <button type="button" class="btn btn-flotante btn-rounded" *ngIf="showGoUpButton" (click)="scrollTop()">
     <i class="fas fa-arrow-circle-up fa-3x"></i>
   </button>
+</div>

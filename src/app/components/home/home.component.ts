@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   public showGoUpButton: boolean;
   public showScrollHeight = 400;
   public hideScrollHeight = 200;
+  public tamano = 'col-sm-12 col-md-6 col-lg-4 p-0 m-0';
 
   public urlImage =
     'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/';
